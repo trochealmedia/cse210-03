@@ -13,6 +13,7 @@ class Director:
         """
         # Create objects using the following classes: 'Jumper', 'Guesser', 'Secret_Word'.
         self._is_playing = True
+        print("start game.")
         
     def start_game(self):
         """Starts the game by running the main game loop.
