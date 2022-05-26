@@ -30,7 +30,7 @@ class Director:
         """
         print("Jumper Game")
         print("---------------")
-        
+
         self.jumper.print_self()
         self.secret_word.pick_random()
 
@@ -49,6 +49,7 @@ class Director:
         print(guess)
         
         self.secret_word.comparing_word(guess)
+        
 
     def _do_updates(self):
         """
