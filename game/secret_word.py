@@ -26,14 +26,6 @@ class Secret_word:
         for letter in self.chosen_word:
             self.hidden.append('-')
 
-        #print(self.hidden)
-        #print(self.spelling)
-
-        for letter in self.hidden:
-            print(f"{letter}", end=" ")
-
-        print(f'\n {self.chosen_word}')
-
     def comparing_word(self, guess):
 
         if guess in self.spelling:
@@ -43,7 +35,6 @@ class Secret_word:
 
                     #self.hidden[index] = letter
                     self.hidden[index[0]] = letter
-
         else:
             print("No")
 
