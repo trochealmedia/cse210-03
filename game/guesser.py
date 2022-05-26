@@ -17,7 +17,7 @@ class Guesser:
         """Constructs the Guesser.
         """
         self.times_guessed = 0
-        self.__alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+        self.alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
         self.guess = ""
 
     def ask_player(self):
@@ -35,7 +35,7 @@ class Guesser:
                 print("...")
                 break
             # Check if input is a letter in the alphabet or if there multiple characters were entered.
-            if guess_lower not in self.__alphabet or len(guess_lower) > 1:
+            if guess_lower not in self.alphabet or len(guess_lower) > 1:
                 print(f"Error: '{guess}' is not an acceptable input. Please try again or type '0' to quit.")
             else:
                 # Keep track of the amount of valid attempts.
@@ -43,3 +43,6 @@ class Guesser:
                 # Check if the player's guess matches any letters within the random word.
                 self.guess = guess_lower
                 break
+    
+    
+

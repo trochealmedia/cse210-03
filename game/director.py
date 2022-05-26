@@ -2,6 +2,7 @@
 
 from game.jumper import Jumper
 from game.guesser import Guesser
+from game.secret_word import Secret_word
 
 new_section =  "-------------------"
 half_section = "- - - - - - - - - -"
@@ -20,7 +21,7 @@ class Director:
         
         self.jumper = Jumper()
         self.guesser = Guesser()
-
+        self.secret_word = Secret_word()
         
 
 
@@ -29,8 +30,11 @@ class Director:
         """
         print("Jumper Game")
         print("---------------")
+        
         self.jumper.print_self()
-    
+        self.secret_word.pick_random()
+
+
         while self._is_playing:
             self._get_inputs()
             self._do_updates()
@@ -41,6 +45,10 @@ class Director:
         """
         # Ask the user for a letter (a-z).
         self.guesser.ask_player()
+        guess = self.guesser.guess
+        print(guess)
+        
+        self.secret_word.comparing_word(guess)
 
     def _do_updates(self):
         """
