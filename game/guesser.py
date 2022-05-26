@@ -43,6 +43,7 @@ class Guesser:
                 # Check if the player's guess matches any letters within the random word.
                 self.guess = guess_lower
                 break
+        print()
     
     
 

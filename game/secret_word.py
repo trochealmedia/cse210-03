@@ -40,17 +40,16 @@ class Secret_word:
             for letter in self.spelling:
                 if guess == letter:
                     index = [pos for pos, char in enumerate(self.chosen_word) if char == guess]
-                    
-                    print(index)
-                    print(f"Letter found on letter {letter}")
 
                     #self.hidden[index] = letter
                     self.hidden[index[0]] = letter
-                    print(self.hidden)
 
         else:
             print("No")
 
-    
+    def print_hidden(self):
+        for letter in self.hidden:
+            print(f"{letter}", end=" ")
+        print("\n")
 
 

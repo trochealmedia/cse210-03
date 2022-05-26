@@ -28,13 +28,20 @@ class Director:
     def start_game(self):
         """Starts the game by running the main game loop.
         """
+        print(new_section)
         print("Jumper Game")
-        print("---------------")
+        print(half_section)
+        print("Try to guess a letter in the hidden word.\n")
 
-        self.jumper.print_self()
+        # Randomly pick a word to be hidden.
         self.secret_word.pick_random()
 
-
+        # Print the hidden word for the first time.
+        self.secret_word.print_hidden()
+        # Print the jumper for the first time.
+        self.jumper.print_self()
+        
+        # Loop through input, update, and outputs.
         while self._is_playing:
             self._get_inputs()
             self._do_updates()
@@ -45,20 +52,17 @@ class Director:
         """
         # Ask the user for a letter (a-z).
         self.guesser.ask_player()
-        guess = self.guesser.guess
-        print(guess)
+        self.guess = self.guesser.guess
         
-        self.secret_word.comparing_word(guess)
-        
-
     def _do_updates(self):
         """
         """
         # Compare the user's guess with the random word.
-        pass
+        self.secret_word.comparing_word(self.guess)
         
     def _do_outputs(self):
         """
         """
         # Display the results of the compare
-        pass
+        self.secret_word.print_hidden()
+        self.jumper.print_self()
