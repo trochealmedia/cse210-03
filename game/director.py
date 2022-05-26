@@ -28,14 +28,18 @@ class Director:
     def start_game(self):
         """Starts the game by running the main game loop.
         """
+        # Randomly pick a word to be hidden.
+        self.secret_word.pick_random()
+
+        # Print the into to the game.
         print(new_section)
         print("Jumper Game")
         print(half_section)
         print("Try to guess a letter in the hidden word.\n")
 
-        # Randomly pick a word to be hidden.
-        self.secret_word.pick_random()
-
+        # Give a hint. (REMOVE THIS)
+        print(f"Hint: {self.secret_word.chosen_word}")
+        
         # Print the hidden word for the first time.
         self.secret_word.print_hidden()
         # Print the jumper for the first time.
