@@ -1,5 +1,8 @@
 """CSE210 W05 - Jumper - director.py"""
 
+from game.jumper import Jumper
+from game.guesser import Guesser
+
 new_section =  "-------------------"
 half_section = "- - - - - - - - - -"
 
@@ -15,9 +18,19 @@ class Director:
         self._is_playing = True
         print("start game.")
         
+        self.jumper = Jumper()
+        self.guesser = Guesser()
+
+        
+
+
     def start_game(self):
         """Starts the game by running the main game loop.
         """
+        print("Jumper Game")
+        print("---------------")
+        self.jumper.print_self()
+    
         while self._is_playing:
             self._get_inputs()
             self._do_updates()
@@ -27,7 +40,7 @@ class Director:
         """
         """
         # Ask the user for a letter (a-z).
-        pass
+        self.guesser.ask_player()
 
     def _do_updates(self):
         """
