@@ -1,5 +1,8 @@
 """CSE210 W05 - Jumper - director.py"""
 
+from game.jumper import Jumper
+from game.guesser import Guesser
+
 new_section =  "-------------------"
 half_section = "- - - - - - - - - -"
 
@@ -13,8 +16,9 @@ class Director:
         """
         # Create objects using the following classes: 'Jumper', 'Guesser', 'Secret_Word'.
         self._is_playing = True
-        print("start game.")
-        
+        jumper = Jumper()
+        guesser = Guesser()
+
     def start_game(self):
         """Starts the game by running the main game loop.
         """
