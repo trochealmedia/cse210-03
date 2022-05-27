@@ -7,6 +7,7 @@ from game.secret_word import Secret_word
 # TODO: 1) in '._do_updates()' method, check if an error was made, remove a line from the Jumper.
 #       2) in '._do_updates()' method, check if the hidden word is completed and matches the random word's spelling.
 #       3) End the game if the word is spelled correctly or if the player makes 4 errors.
+#       4) Ask player if they want to play again.
 
 class Director:
     """A person who directs the game. 
