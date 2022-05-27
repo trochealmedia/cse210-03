@@ -1,5 +1,7 @@
 """CSE210 W05 - Jumper - guesser.py"""
 
+# TODO: Complete
+
 class Guesser:
     """The player who tries to guess the letters in the hidden random word.
 
