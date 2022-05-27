@@ -25,7 +25,6 @@ class Guesser:
         self.__quit = False
         # Loop if the user's input is invalid.
         while self.__quit == False:
-
             guess = input(f"({self.times_guessed}) Guess a letter [a-z]: ")
             guess_lower = guess.lower()
             # Check if the user is wanting to quit.
@@ -40,9 +39,8 @@ class Guesser:
             if guess_lower not in self.alphabet or len(guess_lower) > 1:
                 print(f"Error: '{guess}' is not an acceptable input. Please try again or type '0' to quit.")
             else:
-                # Keep track of the amount of valid attempts.
+                # Store guess in object.
                 self.times_guessed += 1
-                # Check if the player's guess matches any letters within the random word.
                 self.guess = guess_lower
                 break
     
