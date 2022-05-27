@@ -1,5 +1,7 @@
 """CSE210 W05 - Jumper Game"""
 
+# TODO: Complete
+
 class Jumper:
     """A guy with a parachute who's life depends on the player.
 
