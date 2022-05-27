@@ -1,8 +1,5 @@
 """CSE210 W05 - Jumper - guesser.py"""
 
-new_section =  "-------------------"
-half_section = "- - - - - - - - - -"
-
 class Guesser:
     """The player who tries to guess the letters in the hidden random word.
 
@@ -23,16 +20,19 @@ class Guesser:
     def ask_player(self):
         """Asks the player for a letter (a-z). Ask again if the player enters an invalid input.
         """
-        self.quit = False
+        self.__quit = False
         # Loop if the user's input is invalid.
-        while self.quit == False:
-            guess = input("Guess a letter [a-z]: ")
+        while self.__quit == False:
+
+            guess = input(f"({self.times_guessed}) Guess a letter [a-z]: ")
             guess_lower = guess.lower()
             # Check if the user is wanting to quit.
             if guess_lower == "0" or guess_lower == "quit" or guess_lower == 'exit':
-                self.quit == True
-                print("Exiting")
-                print("...")
+                self.guess = ""
+                self.__quit == True
+                print("-------------------------")
+                print("Exiting...\n")
+                print("Thanks for playing!")
                 break
             # Check if input is a letter in the alphabet or if there multiple characters were entered.
             if guess_lower not in self.alphabet or len(guess_lower) > 1:
@@ -43,7 +43,6 @@ class Guesser:
                 # Check if the player's guess matches any letters within the random word.
                 self.guess = guess_lower
                 break
-        print()
     
     
 

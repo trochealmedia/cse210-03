@@ -1,8 +1,5 @@
 """CSE210 W05 - Jumper Game"""
 
-new_section =  "-------------------"
-half_section = "- - - - - - - - - -"
-
 class Jumper:
     """A guy with a parachute who's life depends on the player.
 
@@ -36,6 +33,7 @@ class Jumper:
         """
         for row in self.entire:
             print(row)
+        print()
 
     def remove_line(self, incorect):
         """Removes lines from the Jumper's parachute based on the amount of incorrect answers.
@@ -53,8 +51,15 @@ class Jumper:
             self.entire[2] = row_x # Replaces row_3 with a blank area.
         elif incorect == 4:
             self.entire[3] = row_x # Replaces row_4 with a blank area.
-        elif incorect >= 5:
             self.entire[4] = row_5x # Replaces row_5 with an 'X' instead of a '0'.
+            self.is_alive = False
+        elif incorect >= 5:
+            # Remove all lines from the Jumper's parachute, replace Jumper's head with an 'x'.
+            self.entire[0] = row_x
+            self.entire[1] = row_x
+            self.entire[2] = row_x
+            self.entire[3] = row_x
+            self.entire[4] = row_5x
             self.is_alive = False
         else:
             pass
