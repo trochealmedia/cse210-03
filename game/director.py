@@ -37,10 +37,9 @@ class Director:
 
         # Randomly pick a word to be hidden.
         self.secret_word.pick_random()
-
-        # Give a hint. (REMOVE THIS)
-        print(f"Hint: {self.secret_word.chosen_word}")
         
+        ### TEST ### print(f"Hint: {self.secret_word.chosen_word}")
+
         # Print the hidden word for the first time.
         self.secret_word.print_hidden()
         # Print the jumper for the first time.

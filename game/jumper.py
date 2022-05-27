@@ -40,31 +40,24 @@ class Jumper:
     def remove_line(self, incorect):
         """Removes lines from the Jumper's parachute based on the amount of incorrect answers.
         """
-        row_x    = "       " # Replaces a line with a blank.
         row_5x   = "   X   " # Replaces jumper's head with an 'X' instead of a '0'.
 
         if incorect == 0:
             pass
         elif incorect == 1:
-            self.entire[0] = row_x # Replaces row_1 with a blank area.
+            self.entire.pop(0)
         elif incorect == 2:
-            self.entire[1] = row_x # Replaces row_2 with a blank area.
+            self.entire.pop(0)
         elif incorect == 3:
-            self.entire[2] = row_x # Replaces row_3 with a blank area.
+            self.entire.pop(0)
         elif incorect == 4:
-            self.entire[3] = row_x # Replaces row_4 with a blank area.
+            self.entire.pop(0)
             self.entire[4] = row_5x # Replaces row_5 with an 'X' instead of a '0'.
             self.is_alive = False
-        elif incorect >= 5:
-            # Remove all lines from the Jumper's parachute, replace Jumper's head with an 'x'.
-            self.entire[0] = row_x
-            self.entire[1] = row_x
-            self.entire[2] = row_x
-            self.entire[3] = row_x
+        else:
+            # replace Jumper's head with an 'x'.
             self.entire[4] = row_5x
             self.is_alive = False
-        else:
-            pass
     
     def reset_jumper(self):
         """Restores the Jumper back to his full glory.
