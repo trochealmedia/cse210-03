@@ -90,4 +90,4 @@ class Director:
         # check if the player has made 4 wrong guesses. If so, player loses the game.
         if self.jumper.is_alive == False:
             print("Oh no! Looks like there was not enough parachute left to keep the jumper alive.\n")
-            self.is_playing = False
+            self._is_playing = False
