@@ -4,10 +4,7 @@ from game.jumper import Jumper
 from game.guesser import Guesser
 from game.secret_word import Secret_word
 
-# TODO: 1) in '._do_updates()' method, check if an error was made, remove a line from the Jumper.
-#       2) in '._do_updates()' method, check if the hidden word is completed and matches the random word's spelling.
-#       3) End the game if the word is spelled correctly or if the player makes 4 errors.
-#       4) Ask player if they want to play again.
+# TODO: 1) Ask player if they want to play again. If so, reset the hidden word and jumper.
 
 class Director:
     """A person who directs the game. 
@@ -49,9 +46,9 @@ class Director:
 
         # Loop through input, update, and outputs.
         while self._is_playing == True:
-            self._get_inputs()
             # Check if player is still playing.
             if self._is_playing == True:
+                self._get_inputs()
                 self._do_updates()
                 self._do_outputs()
                 # Exit loop if player wants to quit.
@@ -73,11 +70,10 @@ class Director:
         """
         """
         # Compare the player's guess with the random word.
-        self.secret_word.comparing_word(self.guess)
+        correct = self.secret_word.comparing_word(self.guess)
         # If 'self.guess' is not in list, remove a line from the jumper.
-        
-        # Check if the hidden word is completed/revealed.
-         
+        if not correct:
+            self.jumper.remove_line()
         print("-------------------------\n")
 
     def _do_outputs(self):
@@ -86,3 +82,12 @@ class Director:
         # Display the results of the compare
         self.secret_word.print_hidden()
         self.jumper.print_self()
+        # Check if the secret word has been completely revealed. If so, player wins the game.
+        win = self.secret_word.check_if_revealed()
+        if win:
+            print("Congratulations! You win!\n")
+            self._is_playing = False
+        # check if the player has made 4 wrong guesses. If so, player loses the game.
+        if self.jumper.is_alive == False:
+            print("Oh no! Looks like there was not enough parachute left to keep the jumper alive.\n")
+            self.is_playing = False
