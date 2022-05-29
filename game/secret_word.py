@@ -25,7 +25,7 @@ class Secret_word:
     def __init__(self):
         """Constructs a new instance of Secret_word.
         """
-        self.__word_list = ['github','nightmare', 'python', 'java', 'taco', 'banana', '']
+        self.__word_list = ['github','nightmare', 'python', 'java', 'taco', 'banana']
 
     def pick_random(self):
         """Selects a random word from the self.word_list. Creates two lists.
